@@ -1,3 +1,5 @@
+from user import User
+
 class RecompositionCalculator:
     # --- HELPER METHODS --- #
     def convert_to_kg(self, weight_in_pounds: float):
@@ -31,9 +33,20 @@ class RecompositionCalculator:
             print('For the purpose of the Mifflin St. Jeor formula, only binary Male/Female genders are permitted.'
                   'An approximate BMR has been calculated using the standard weight x 10 method, be aware that results '
                   'may be slightly less accurate.')
+        # TODO: round bmr to closest int
         return bmr
 
-    # TODO: make sure to keep
+    def calculate_TDEE(self, user: User):
+        # TODO: calculate TDEE based on activity factor
+        # TODO: auto adjust activity factor depending on primary goal
+        pass
+
+    def calculate_daily_energy_intake(self):
+        # TODO: determine total n of cals to consume based on bf % and primary goal
+        # TODO: double check to make sure both are congruent
+        pass
+
+    # TODO: make sure to keep flexible for use with multiple TDEE's
     def calculate_macros(self):
         # TODO: package for individual macro methods
         pass
