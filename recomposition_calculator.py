@@ -1,4 +1,5 @@
 class RecompositionCalculator:
+    # --- HELPER METHODS --- #
     def convert_to_kg(self, weight_in_pounds: float):
         """Takes a weight in pounds and returns kg conversion"""
         return weight_in_pounds / 2.2046
@@ -16,6 +17,8 @@ class RecompositionCalculator:
     def convert_cm_to_inches(self, centimeters: float):
         return centimeters / 2.54
 
+    # --- CALCULATIONS --- #
+    # TODO: retool calc_bmr to use User instead of individual stats
     def calculate_bmr(self, height, weight, age, gender):
         # calculates BMR based on the Mifflin St. Jeor formula
         bmr = 10 * weight + 6.25 * height - 5 * age
@@ -24,10 +27,28 @@ class RecompositionCalculator:
         elif gender[0].upper() == 'F':
             bmr -= 161
         else:
-            pass
-            # todo: throw custom error
+            bmr = weight * 10
+            print('For the purpose of the Mifflin St. Jeor formula, only binary Male/Female genders are permitted.'
+                  'An approximate BMR has been calculated using the standard weight x 10 method, be aware that results '
+                  'may be slightly less accurate.')
         return bmr
 
+    # TODO: make sure to keep
+    def calculate_macros(self):
+        # TODO: package for individual macro methods
+        pass
+
+    def calculate_protein(self):
+        # TODO: calculate protein macro
+        pass
+
+    def calculate_carbs(self):
+        # TODO: calculate carb macro
+        pass
+
+    def calculate_lipids(self):
+        # TODO: calc lipid macro
+        pass
 
 if __name__ == '__main__':
     # todo: delete later, for testing purposes only
